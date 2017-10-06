@@ -1,0 +1,7 @@
+C:\Users\destr\Documents\Visual Studio 2017\Projects\[b2]projetPOO-checsgame\[b2]projetPOO-checsgame\bin\Debug\[b2]projetPOO-checsgame.exe.config
+C:\Users\destr\Documents\Visual Studio 2017\Projects\[b2]projetPOO-checsgame\[b2]projetPOO-checsgame\bin\Debug\[b2]projetPOO-checsgame.exe
+C:\Users\destr\Documents\Visual Studio 2017\Projects\[b2]projetPOO-checsgame\[b2]projetPOO-checsgame\bin\Debug\[b2]projetPOO-checsgame.pdb
+C:\Users\destr\Documents\Visual Studio 2017\Projects\[b2]projetPOO-checsgame\[b2]projetPOO-checsgame\obj\Debug\[b2]projetPOO-échecsgame.csprojResolveAssemblyReference.cache
+C:\Users\destr\Documents\Visual Studio 2017\Projects\[b2]projetPOO-checsgame\[b2]projetPOO-checsgame\obj\Debug\[b2]projetPOO-échecsgame.csproj.CoreCompileInputs.cache
+C:\Users\destr\Documents\Visual Studio 2017\Projects\[b2]projetPOO-checsgame\[b2]projetPOO-checsgame\obj\Debug\[b2]projetPOO-checsgame.exe
+C:\Users\destr\Documents\Visual Studio 2017\Projects\[b2]projetPOO-checsgame\[b2]projetPOO-checsgame\obj\Debug\[b2]projetPOO-checsgame.pdb
