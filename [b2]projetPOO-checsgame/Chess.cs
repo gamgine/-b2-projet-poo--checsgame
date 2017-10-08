@@ -35,6 +35,8 @@ namespace _b2_projetPOO_checsgame
         public void Round(bool round)
         {
             Console.Clear();
+            if (round) { new Print("a vous blue", ConsoleColor.Blue); }
+            else { new Print("a vous rouge", ConsoleColor.Red); }
             this.map.Print();
             int[] s = this.map.Select(round);
             this.map.Action(s);
@@ -51,3 +53,4 @@ namespace _b2_projetPOO_checsgame
         }
     }
 }
+/*todo pause*/
