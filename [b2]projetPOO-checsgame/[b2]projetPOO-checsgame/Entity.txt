@@ -1,0 +1,6 @@
+﻿b fou beachop
+r tour rook
+k roi king
+q rein quine
+N cavalier
+p pion
