@@ -14,13 +14,22 @@ namespace _b2_projetPOO_checsgame
             Console.Write(s);
             Console.ForegroundColor = ConsoleColor.White;
         }
+        public Print(string s, ConsoleColor c, ConsoleColor back)
+        {
+            Console.ForegroundColor = c;
+            Console.BackgroundColor = back;
+            Console.Write(s);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+        }
     }
     class Program
     {
         static void Main(string[] args)
         {
+            /*todo dodo*/
             Chess game = new Chess();
-            Console.WriteLine("Fin de partie");
+            /*todo relancer*/
             Console.ReadKey();
         }
     }

@@ -10,7 +10,20 @@ namespace _b2_projetPOO_checsgame
         protected bool color;
         public Entity(bool color)
         { this.color = color; }
-        public virtual void Print()
-        { new Print(" * ", ConsoleColor.Red); }
+        public virtual string Get()
+        { return " *"; }
+        public bool GetColor()
+        { return this.color; }
+
+        public virtual int[,] Mv(int[]s)
+        {
+            int[,] mv = new int[0, 0];
+            return mv;/*todo mv*/ }
+        public virtual int[,] Att(int[]s)
+        {
+            int[,] mv = new int[0, 0];
+            return mv;/*todo Att*/
+        }
     }
-}
+}/*todo ?*/
+
