@@ -9,18 +9,28 @@ namespace _b2_projetPOO_checsgame
     class Chess
     {
         private Map map;
-        private bool round;
+        private bool round,end;
         public Chess()
         {
             this.Start();
         }
         private void Start()
         {
-            Console.WriteLine("pour commancer appiyer sur une touche");
             this.map = new Map();
-            round = true;
+            this.round = true;
+            this.end = false;
+            Console.WriteLine("pour commancer appiyer sur une touche");
             Console.ReadKey();
-            this.Round(round);/*todo boucler p1-2*/
+            while (true)
+            {
+                this.Round(this.round);
+                //todo finir round
+                if (this.end) { break; }
+                if (this.round) { this.round = false; }
+                else { this.round = true; }
+            }
+            End(true);
+            Console.ReadKey();
         }
         public void Round(bool round)
         {
@@ -29,7 +39,6 @@ namespace _b2_projetPOO_checsgame
             int[] s = this.map.Select(round);
             this.map.Action(s);
             Console.ReadKey();
-            End(true);
         }
         private void End(bool winer)
         {

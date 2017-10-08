@@ -29,8 +29,10 @@ namespace _b2_projetPOO_checsgame
         {
             /*todo dodo*/
             Chess game = new Chess();
-            /*todo relancer*/
-            Console.ReadKey();
+            
+            Console.WriteLine("voulez vous rejouer? y/n");
+            if(Console.ReadKey().Key == ConsoleKey.Y)
+            { game = new Chess(); }
         }
     }
 }

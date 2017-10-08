@@ -11,6 +11,7 @@ namespace _b2_projetPOO_checsgame
     {
         private Entity[,] map = new Entity[8, 8];//x,y
         private int selectionx, selectiony;
+
         public Map()
         {
             selectionx = selectiony = 0;
@@ -43,6 +44,55 @@ namespace _b2_projetPOO_checsgame
             }
             Console.WriteLine("  a b c d e f g h");
         }
+ /*       public void Print(int[] act, int[,] mv, int[,] att)
+        {
+            Console.Clear();
+            Console.WriteLine("  a b c d e f g h");
+            for (int x = 0; x < 8; x++)
+            {
+                Console.Write((x + 1));
+                for (int y = 0; y < 8; y++)
+                {
+                    bool bact, bmv, batt = false;//todo Utilisation d'une variable locale non assignée 'bmv' ?
+
+                    for (int i = 0; i < act.Length; i++)
+                    { if (act[0] == x && act[1] == y) { bact = true; } }
+                    for (int i = 0; i < mv.Length; i++)
+                    {
+                        for (int i2 = 0; i2 < mv.Length; i2++)
+                        { if ( mv[i,0]==x && mv[i,1]==y ) { bmv = true; } }
+                    }
+                    for (int i = 0; i < att.Length; i++)
+                    {
+                        for (int i2 = 0; i2 < att.Length; i2++)
+                        { if (att[i, 0] == x && att[i, 1] == y) { bmv = true; } }
+                    }
+
+                    if (this.map[x, y] == null)
+                    {
+                        if (bmv) { new Print(" -", ConsoleColor.White,ConsoleColor.Green); }
+                        else if(batt) { new Print(" -", ConsoleColor.White, ConsoleColor.Yellow); }
+                        else { Console.Write(" -"); }
+                    }
+                    else
+                    {
+                        if (map[x, y].GetColor())
+                        {
+                            new Print(map[x, y].Get(), ConsoleColor.Blue);
+
+                            if (bact) { new Print(map[x, y].Get(), ConsoleColor.White, ConsoleColor.Green); }
+                            else if (bmv) { new Print(map[x, y].Get(), ConsoleColor.White, ConsoleColor.Green); }
+                            else if (batt) { new Print(map[x, y].Get(), ConsoleColor.White, ConsoleColor.Yellow); }
+                            else { new Print(map[x, y].Get(), ConsoleColor.Blue); }
+                        }
+                        else
+                        { new Print(map[x, y].Get(), ConsoleColor.Red); }
+                    }
+                }
+                Console.WriteLine(" " + (x + 1));
+            }
+            Console.WriteLine("  a b c d e f g h");
+        }*/
         public int[] Select(bool playercolor)
         {
             bool selected = false;
@@ -80,11 +130,11 @@ namespace _b2_projetPOO_checsgame
                     Console.WriteLine();
                     if (this.map[this.selectionx, this.selectiony] != null)
                     {
-                        if(this.map[this.selectionx, this.selectiony].GetColor() == playercolor)
+                        if (this.map[this.selectionx, this.selectiony].GetColor() == playercolor)
                         {
                             selected = true;
                             Console.Write("pion selectioner : ");
-                            Console.WriteLine((sel[0] + 1) + " , " + (char)(sel[1] + 65));
+                            Console.WriteLine((this.selectionx + 1) + " , " + (char)(this.selectiony + 65));
                         }
                         else { Console.WriteLine("ce pion ne vous appartien pas selectionez en un autre"); }
                     }
@@ -95,17 +145,17 @@ namespace _b2_projetPOO_checsgame
             int[] r = { this.selectionx, this.selectiony };
             return r;
         }
-        public int Action(int[] sel)
+        public void Action(int[] sel)
         {
             int[,]mv = map[sel[0],sel[1]].Mv(sel);
             int[,]att = map[sel[0], sel[1]].Att(sel);
-            /*todo print mv list && att*/
-            /*todo select att or mv*/
+            //this.Print(sel, mv, att);
+            /*print mv list && att*/
+            //action mv att
             int[] act = new int[2];
             if(true)
             { this.Del(act); }//si attaqie
-            this.Mv(sel, act);//deplacement
-            return 0;/*todo return rien ech ma/vic*/
+            this.Mv(sel, act);//deplacement*/
         }
         private void Mv(int[] e,int []d)
         {
@@ -114,6 +164,6 @@ namespace _b2_projetPOO_checsgame
         }
         private void Del(int[] e)
         { this.map[e[0], e[0]] = null; }
+        public int Status() { return 0; /*todo null echeque math*/}
     }
 }
-/*todo start 1740*/

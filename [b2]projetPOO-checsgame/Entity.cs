@@ -17,13 +17,14 @@ namespace _b2_projetPOO_checsgame
 
         public virtual int[,] Mv(int[]s)
         {
-            int[,] mv = new int[0, 0];
-            return mv;/*todo mv*/ }
+            int[,] mv = new int[0, 0];//0.0==x 0.1==y
+            return mv;
+        }
         public virtual int[,] Att(int[]s)
         {
             int[,] mv = new int[0, 0];
-            return mv;/*todo Att*/
+            return mv;
         }
     }
-}/*todo ?*/
+}
 
