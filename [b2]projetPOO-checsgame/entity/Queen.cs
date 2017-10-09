@@ -59,12 +59,5 @@ namespace _b2_projetPOO_checsgame.entity
             }*/
         }
         public override string Get() { return " Q"; }
-
-        public override int[,] Mv(int[] s)
-        {
-            return this.mv;
-        }
-        public override int[,] Att(int[] s)
-        { return this.Mv(s); }
     }
 }
