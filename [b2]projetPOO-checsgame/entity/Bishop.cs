@@ -8,20 +8,28 @@ namespace _b2_projetPOO_checsgame.entity
 {
     class Bishop : Entity
     {
-        private int[,] mvlist = new int[32, 2];
+        private int[,] mv = new int[32, 2];
         public Bishop(bool color) : base(color)
         {
-            for (int i = 0; i < 16; i++)
+            for (int i = 0; i < 8; i++)
             {
-                this.mvlist[i, 0] = 0;
-                if (i < 8) { this.mvlist[i, 1] = -i; }
-                else { this.mvlist[i, 1] = i; }
+                this.mv[i, 0] = i;
+                this.mv[i, 1] = i;
             }
-            for (int i = 0; i < 16; i++)
+            for (int i = 0; i < 8; i++)
             {
-                this.mvlist[i, 0] = 1;
-                if (i < 8) { this.mvlist[i, 0] = -i; }
-                else { this.mvlist[i, 0] = i; }
+                this.mv[i+8, 0] = -i;
+                this.mv[i+8, 1] = -i;
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                this.mv[i+16, 0] = -i;
+                this.mv[i+16, 1] = i;
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                this.mv[i + 24, 0] = i;
+                this.mv[i + 24, 1] = -i;
             }
 
         }
