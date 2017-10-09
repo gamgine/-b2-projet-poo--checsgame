@@ -8,8 +8,21 @@ namespace _b2_projetPOO_checsgame.entity
 {
     class Pion : Entity
     {
-        private int[,] mvlist = new int[1, 2];
-        public Pion(bool color) : base(color){}
+        private int[,] mv = new int[3, 2];
+        public Pion(bool color) : base(color)
+        {
+            if (this.color) { mv[0, 0] = 1; }
+            else { mv[0, 0] = -1; }
+            mv[0, 1] = 0;
+
+            if (this.color) { mv[1, 0] = 1; }
+            else { mv[1, 0] = -1; }
+            mv[1, 1] = 1;
+
+            if (this.color) { mv[2, 0] = 1; }
+            else { mv[2, 0] = -1; }
+            mv[2, 1] = -1;
+        }
         public override string Get()
         { return " p"; }
     }

@@ -8,9 +8,9 @@ namespace _b2_projetPOO_checsgame.entity
 {
     class Queen : Entity
     {
-        private int[,] mv;
+        private int[,] mv =new int[64,2];
         public Queen(bool color) : base(color)
-        {/*
+        {
             for (int i = 0; i < 32; i++)
             {
                 if (i < 8)
@@ -56,7 +56,7 @@ namespace _b2_projetPOO_checsgame.entity
                     this.mv[i, 0] = -(i - 56);
                     this.mv[i, 1] = (i - 56);
                 }
-            }*/
+            }
         }
         public override string Get() { return " Q"; }
     }
