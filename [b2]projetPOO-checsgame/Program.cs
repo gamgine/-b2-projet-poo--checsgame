@@ -27,7 +27,7 @@ namespace _b2_projetPOO_checsgame
     {
         static void Main(string[] args)
         {
-            /*todo dodo*/
+            //dodo!!!
             Chess game = new Chess();
             
             Console.WriteLine("voulez vous rejouer? y/n");

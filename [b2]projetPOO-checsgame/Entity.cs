@@ -16,15 +16,14 @@ namespace _b2_projetPOO_checsgame
         { return this.color; }
 
         public virtual int[,] Mv(int[]s)
-        {
-            int[,] mv = new int[0, 0];//0.0==x 0.1==y
-            return mv;
-        }
+        {   return new int [0,0];   }
         public virtual int[,] Att(int[]s)
         {
             int[,] mv = new int[0, 0];
             return mv;
         }
-    }
+        public virtual bool isk()
+        { return false; }
+    }//todo definir tous elements et verif bugs
 }
 

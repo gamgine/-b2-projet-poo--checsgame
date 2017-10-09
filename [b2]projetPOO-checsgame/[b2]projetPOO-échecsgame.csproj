@@ -42,16 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="chess.cs" />
+    <Compile Include="Chess.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="entity\Bishop.cs" />
+    <Compile Include="entity\King.cs" />
+    <Compile Include="entity\Knight.cs" />
     <Compile Include="entity\Pion.cs" />
+    <Compile Include="entity\Queen.cs" />
+    <Compile Include="entity\Rook.cs" />
     <Compile Include="Map.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

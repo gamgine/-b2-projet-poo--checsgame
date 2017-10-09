@@ -9,7 +9,7 @@ namespace _b2_projetPOO_checsgame
     class Chess
     {
         private Map map;
-        private bool round,end;
+        private bool round;
         public Chess()
         {
             this.Start();
@@ -18,19 +18,9 @@ namespace _b2_projetPOO_checsgame
         {
             this.map = new Map();
             this.round = true;
-            this.end = false;
             Console.WriteLine("pour commancer appiyer sur une touche");
             Console.ReadKey();
-            while (true)
-            {
-                this.Round(this.round);
-                //todo finir round
-                if (this.end) { break; }
-                if (this.round) { this.round = false; }
-                else { this.round = true; }
-            }
-            End(true);
-            Console.ReadKey();
+            this.Round(this.round);
         }
         public void Round(bool round)
         {
@@ -38,9 +28,21 @@ namespace _b2_projetPOO_checsgame
             if (round) { new Print("a vous blue", ConsoleColor.Blue); }
             else { new Print("a vous rouge", ConsoleColor.Red); }
             this.map.Print();
-            int[] s = this.map.Select(round);
-            this.map.Action(s);
-            Console.ReadKey();
+            int[] s = map.SelectPion(round);
+
+            //int[,] mv = map.map[s[0], s[1]].Mv(s);
+            //int[,] att = map.map[s[0], s[1]].Att(s);
+            /*Console.Clear();
+            this.map.Print(s, mv);
+            this.map.Print();*/
+
+            int[] a = map.Selectact(s,round);
+            Console.WriteLine("pion mv");
+            //fin r restart
+            if (map.Status()==0)//si vivant
+            { if (round) { this.Round(false); } else { this.Round(true); } }
+            else { this.End(true); }//todo defin win
+
         }
         private void End(bool winer)
         {
@@ -52,5 +54,4 @@ namespace _b2_projetPOO_checsgame
             Console.WriteLine();
         }
     }
-}
-/*todo pause*/
+}// dodo :p
