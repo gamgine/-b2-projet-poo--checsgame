@@ -8,34 +8,25 @@ namespace _b2_projetPOO_checsgame.entity
 {
     class Knight : Entity
     {
-        private int[,] mv =new int[8,2];
+        private int[,] mv=new int [8,2];
         public Knight(bool color) : base(color)
         {
-            /*for (int i = 0; i < 32; i++)
-            {
-                if (i < 8)
-                {
-                    this.mv[i, 0] = -i;
-                    this.mv[i, 1] = -i;
-                }
-                if (i > 8 && i < 16)
-                {
-                    this.mv[i, 0] = (i - 8);
-                    this.mv[i, 1] = -(i - 8);
-                }
-
-                if (i > 16 && i < 24)
-                {
-                    this.mv[i, 0] = (i - 16);
-                    this.mv[i, 1] = (i - 16);
-                }
-                if (i > 24)
-                {
-                    this.mv[i, 0] = -(i - 24);
-                    this.mv[i, 1] = (i - 24);
-                }
-
-            }*/
+            mv[0, 0] = 2;
+            mv[0, 1] = 2;
+            mv[1, 0] = -1;
+            mv[1, 1] = 2;
+            mv[2, 0] = 1;
+            mv[2, 1] = 2;
+            mv[3, 0] = 1;
+            mv[3, 1] = -2;
+            mv[4, 0] = -1;
+            mv[4, 1] = 2;
+            mv[5, 0] = -1;
+            mv[5, 1] = -2;
+            mv[6, 0] = -2;
+            mv[6, 1] = 1;
+            mv[7, 0] = -2;
+            mv[7, 1] = -1;
         }
         public override string Get() { return " N"; }
 
