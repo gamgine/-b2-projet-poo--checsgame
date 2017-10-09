@@ -33,7 +33,7 @@ namespace _b2_projetPOO_checsgame
             }
             return r;
         }
-        public int[,] Att(int[]s)
+        public virtual int[,] Att(int[]s)
         { return this.Mv(s); }
         public virtual bool isk()
         { return false; }
