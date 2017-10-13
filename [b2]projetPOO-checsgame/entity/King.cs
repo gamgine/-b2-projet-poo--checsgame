@@ -30,7 +30,7 @@ namespace _b2_projetPOO_checsgame.entity
         }
         public override string Get() { return " k"; }
 
-        public override bool isk()
+        public override bool Isk()
         { return true; }
     }
 }

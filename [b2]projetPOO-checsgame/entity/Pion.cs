@@ -15,16 +15,15 @@ namespace _b2_projetPOO_checsgame.entity
             else { mv[0, 0] = -1; }
             mv[0, 1] = 0;
         }
-        public override int[,] Att(int[] s)
+        public override List<int[]> Att(int[] s)
         {
-            int[,] att = new int[2, 2];
-            if (this.color) { att[1, 0] = (1 + s[0]); }
-            else { att[1, 0] = (-1 + s[0]); }
-            att[1, 1] = (1 + s[1]);
+            List<int[]> att = new List<int[]>();
+            if (this.color) { att.Add(new int[] { (1 + s[0]), (1 + s[1]) }); }
+            else            { att.Add(new int[] { (-1 + s[0]), (1 + s[1]) }); }
+            att.Add(new int[] { (1 + s[0]), (-1 + s[1]) });
+            if (this.color) { att.Add(new int[] { (1 + s[0]), (-1 + s[1]) }); }
+            else            { att.Add(new int[] { (-1 + s[0]), (-1 + s[1]) }); }
 
-            if (this.color) { att[0, 0] = (1 + s[0]); }
-            else { att[0, 0] = (-1 + s[0]); }
-            att[0, 1] = (-1 + s[1]);
             return att;
         }
         public override string Get()

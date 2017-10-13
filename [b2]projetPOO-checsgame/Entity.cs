@@ -10,32 +10,25 @@ namespace _b2_projetPOO_checsgame
         private int[,] mv;
         protected bool color;
         public Entity(bool color)
-        { this.color = color; }
+        { this.color = color; this.mv = new int[0,0]; }
         public virtual string Get()
         { return " *"; }
         public bool GetColor()
         { return this.color; }
-
-        public int[,] Mv(int[]s)
+        public List<int[]> Mv(int[]s)
         {
-            int ml = 0;
-            int[,] r = { };
+            List<int[]> mvl = new List<int[]>();
             for (int i = 0; i < this.mv.Length; i++)
             {
-                int p = this.mv[i, 0] + s[0];
-                int p2 = this.mv[i, 1] + s[1];
-                if ((p < 8 && p > 0) && (p2 < 8 && p2 > 0))
-                {
-                    r[ml, 0] = p;
-                    r[ml, 1] = p2;
-                    ml++;
-                }
+                int[] m = { this.mv[i, 0] + s[0] , this.mv[i, 1] + s[1] };
+                if ((m[0]<=0 && m[0] > 8)&& (m[1] <= 0 && m[1] > 8))
+                { mvl.Add(m); }
             }
-            return r;
+            return mvl;
         }
-        public virtual int[,] Att(int[]s)
+        public virtual List<int[]> Att(int[]s)
         { return this.Mv(s); }
-        public virtual bool isk()
+        public virtual bool Isk()
         { return false; }
     }//todo definir tous elements et verif bugs
 }

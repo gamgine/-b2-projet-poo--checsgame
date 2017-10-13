@@ -24,7 +24,7 @@ namespace _b2_projetPOO_checsgame
             {
                 this.map[1, i] = new Pion(true);
                 this.map[6, i] = new Pion(false);
-            }
+			}
             this.map[7, 0] = new Rook(false);
             this.map[7, 1] = new Knight(false);
             this.map[7, 2] = new Bishop(false);
@@ -33,7 +33,7 @@ namespace _b2_projetPOO_checsgame
             this.map[7, 6] = new Knight(false);
             this.map[7, 5] = new Bishop(false);
             this.map[7, 3] = new Queen(false);
-        }
+		}
         public void Print()
         {
             Console.Clear();
@@ -51,12 +51,12 @@ namespace _b2_projetPOO_checsgame
                         { new Print(map[x, y].Get(), ConsoleColor.Blue); }
                         else
                         { new Print(map[x, y].Get(), ConsoleColor.Red); }
-                    }
-                }
+					}
+				}
                 Console.WriteLine(" " + (x + 1));
-            }
+			}
             Console.WriteLine("  a b c d e f g h");
-        }
+		}
         //public void Print(int[] act, int[,] mv, int[,] att)//todo print2
         public void Print(int[] act, int[,] mv)//todo bug double
         {
@@ -68,85 +68,75 @@ namespace _b2_projetPOO_checsgame
                 for (int y = 0; y < 8; y++)
                 {
                     bool bact = false, bmv = false, batt = false;
-
                     if (act[0] == x && act[1] == y) { bact = true; }
                     else
                     {
                         /*for (int i = 0; i < mv.Length; i++)
-                        {
+							{
                             for (int i2 = 0; i2 < mv.Length; i2++)
                             { if (mv[i, 0] == x && mv[i, 1] == y) { bmv = true; } }
-                        }
-                        /*for (int i = 0; i < att.Length; i++)
-                        {
+							}
+							/*for (int i = 0; i < att.Length; i++)
+							{
                             for (int i2 = 0; i2 < att.Length; i2++)
                             { if (att[i, 0] == x && att[i, 1] == y) { bmv = true; } }
-                        }*/
-                    }
+						}*/
+					}
                     if (this.map[x, y] == null)
                     {
                         if (bmv) { new Print(" -", ConsoleColor.White, ConsoleColor.Green); }
                         else if (batt) { new Print(" -", ConsoleColor.White, ConsoleColor.Yellow); }
                         else { Console.Write(" -"); }
-                    }
+					}
                     else
                     {
                         if (map[x, y].GetColor())
                         {
-                            new Print(map[x, y].Get(), ConsoleColor.Blue);
-
+							new Print(map[x, y].Get(), ConsoleColor.Blue);
+							// string  . color . bg color
                             if (bact) { new Print(map[x, y].Get(), ConsoleColor.Black, ConsoleColor.White); }
                             else if (bmv) { new Print(map[x, y].Get(), ConsoleColor.White, ConsoleColor.Green); }
                             else if (batt) { new Print(map[x, y].Get(), ConsoleColor.White, ConsoleColor.Yellow); }
                             else { new Print(map[x, y].Get(), ConsoleColor.Blue); }
-                        }
+						}
                         else
                         { new Print(map[x, y].Get(), ConsoleColor.Red); }
-                    }
-                }
+					}
+				}
                 Console.WriteLine(" " + (x + 1));
-            }
+			}
             Console.WriteLine("  a b c d e f g h");
-        }
+		}
         public int[] Select()
         {
             int selectionx = 0, selectiony = 0;
-            bool selected = false;
             Console.WriteLine("utiliser les fleches pour vous deplacer et entre pour selectioner");
             Console.Write("position actuel : ");
             Console.WriteLine((selectionx + 1) + " , " + (char)(selectiony + 65));
-            while (selected == false)
+            while (true)
             {
                 ConsoleKey key = Console.ReadKey().Key;
                 if (key != ConsoleKey.Enter)
                 {
                     switch (key)
                     {
-                        case ConsoleKey.RightArrow:
-                            if (selectiony < 7) { selectiony++; }
-                            break;
-                        case ConsoleKey.LeftArrow:
-                            if (selectiony > 0) { selectiony--; }
-                            break;
-                        case ConsoleKey.UpArrow:
-                            if (selectionx > 0) { selectionx--; }
-                            break;
-                        case ConsoleKey.DownArrow:
-                            if (selectionx < 7) { selectionx++; }
-                            break;
+                        case ConsoleKey.RightArrow: if (selectiony < 7) { selectiony++; } break;
+                        case ConsoleKey.LeftArrow: if (selectiony > 0) { selectiony--; } break;
+                        case ConsoleKey.UpArrow: if (selectionx > 0) { selectionx--; } break;
+                        case ConsoleKey.DownArrow: if (selectionx < 7) { selectionx++; } break;
                         default:
-                            Console.WriteLine();
-                            Console.WriteLine("utiliser les fleches our vous deplacer et entrer pour confirmer votre selection");
-                            break;
-                    }
+						Console.WriteLine();
+						Console.WriteLine("utiliser les fleches our vous deplacer et entrer pour confirmer votre selection");
+                        break;
+					}
                     Console.Write((int)(selectionx + 1) + " , " + (char)(selectiony + 65));
-                }
-                else { selected = true; }
-            }
+				}
+                else { break; }
+			}
             Console.WriteLine();
             int[] r = { selectionx, selectiony };
             return r;
-        }
+		}
         public int[] SelectPion(bool round)
         {
             int[] s = {0,0};
@@ -160,41 +150,41 @@ namespace _b2_projetPOO_checsgame
                         Console.Write("pion selectioner : ");
                         Console.WriteLine((s[0] + 1) + " , " + (char)(s[1] + 65));
                         break;
-                    }
+					}
                     else { Console.WriteLine("ce pion ne vous appartien pas selectionez en un autre"); }
-                }
+				}
                 else { Console.WriteLine("la case est vide selectionez un pion"); }
-            }
+			}
             return s;
-        }
+		}
         public int[] Selectact(int[] sel,bool round)
         {
             int[] s = new int[1];
-            int[,] mv = this.map[sel[0], sel[1]].Mv(sel);//liste mv [n,x/y]
+            List < int[] > mv = this.map[sel[0], sel[1]].Mv(sel);//liste mv [n,x/y]
             while (true)
             {
-                bool ok=false;
+                bool ok=true;
                 s = this.Select();//selection mv
-                for (int i = 0; i < (mv.Length-1); i++)//-- s is mv
+                for (int i = 0; i < (mv.Count-1); i++)//-- s is mv
                 {
                     //if ( s[0]==mv[i,0]&&s[1]==mv[i,1] ) { ok = true; }//todo debug comparateur
                     if (true) { ok = true; }
-                }
-                if (ok==true)//ok mv entity
+				}
+                if (ok)//ok mv entity
                 {
                     Console.WriteLine("mv");
                     this.Mv(sel, s);
                     break;
-                }
+				}
                 else { Console.WriteLine("vous ne pouvez pas faire ca"); }
-            }
+			}
             return s;
-        }
+		}
         private void Mv(int[] e,int []d)
         {
             this.map[d[0], d[1]] = this.map[e[0], e[0]];
             this.map[e[0], e[0]] = null;
-        }
+		}
         public int Status()
         {
             int b=0,r=0;
@@ -204,20 +194,20 @@ namespace _b2_projetPOO_checsgame
                 {
                     if (this.map[i, i2] != null)
                     {
-                        if (this.map[i, i2].isk())
+                        if (this.map[i, i2].Isk())
                         {
                             if(this.map[i, i2].GetColor()) 
                             { b = 1; }
                             else { r = 1; }
-                        }
-                    }
-                }
-            }
+						}
+					}
+				}
+			}
             if (b == 1 && r == 1)
             {
                 return 0; /*todo null echeque math*/
-            }
+			}
             return 1;
-        }
-    }
+		}
+	}
 }
